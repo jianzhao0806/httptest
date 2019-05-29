@@ -41,7 +41,7 @@ void my_exit(int code)
 			       (float)content_len / transfer_time, url);
 	} else {
 		if (x)
-			printf("%s code=%d,dns_time=0,connect_time=0,response_time=0,transfer_time=0,content_len=0,transfer_rate=0\n",code);
+			printf("code=%d,dns_time=0,connect_time=0,response_time=0,transfer_time=0,content_len=0,transfer_rate=0\n",code);
 		else
 			printf("%d 0 0 0 0 0 %s\n", code, url);
 	}
