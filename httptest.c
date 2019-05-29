@@ -25,7 +25,7 @@ int wait_time = 5;
 char check_string[MAXLEN];
 char url[MAXLEN];
 char ifluxdb_prefix[MAXLEN];
-
+int x=1;
 struct timeval lasttv;
 float dns_time, connect_time, response_time, transfer_time;
 unsigned long int content_len;
@@ -33,16 +33,15 @@ unsigned long int content_len;
 void my_exit(int code)
 {
 	if (code == 0) {
-		if (ifluxdb_prefix[0])
-			printf("%s code=10,dns_time=%.4f,connect_time=%.4f,response_time=%.4f,transfer_time=%.4f,content_len=%ld,transfer_rate=%.0f\n",
-			       ifluxdb_prefix, dns_time, connect_time, response_time, transfer_time, content_len, (float)content_len / transfer_time);
+		if (x)
+			printf("code=10,dns_time=%.4f,connect_time=%.4f,response_time=%.4f,transfer_time=%.4f,content_len=%ld,transfer_rate=%.0f\n",
+			       dns_time, connect_time, response_time, transfer_time, content_len, (float)content_len / transfer_time);
 		else
 			printf("%d %.4f %.4f %.4f %.4f %ld %.0f %s\n", code, dns_time, connect_time, response_time, transfer_time, content_len,
 			       (float)content_len / transfer_time, url);
 	} else {
-		if (ifluxdb_prefix[0])
-			printf("%s code=%d,dns_time=0,connect_time=0,response_time=0,transfer_time=0,content_len=0,transfer_rate=0\n", ifluxdb_prefix,
-			       10 - code);
+		if (x)
+			printf("%s code=%d,dns_time=0,connect_time=0,response_time=0,transfer_time=0,content_len=0,transfer_rate=0\n",code);
 		else
 			printf("%d 0 0 0 0 0 %s\n", code, url);
 	}
