@@ -34,7 +34,7 @@ void my_exit(int code)
 {
 	if (code == 0) {
 		if (x)
-			printf("%s,code=10,dns_time=%.4f,connect_time=%.4f,response_time=%.4f,transfer_time=%.4f,content_len=%ld,transfer_rate=%.0f value=1\n",
+			printf("%s,code=10,dns_time=%.4f,connect_time=%.4f,response_time=%.4f,transfer_time=%.4f,content_len=%ld,transfer_rate=%.0f value=1",
 			       ifluxdb_prefix, dns_time, connect_time, response_time, transfer_time, content_len, (float)content_len / transfer_time);
 		else
 			printf("%d %.4f %.4f %.4f %.4f %ld %.0f %s\n", code, dns_time, connect_time, response_time, transfer_time, content_len,
